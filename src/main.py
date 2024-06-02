@@ -1,5 +1,5 @@
 # Custom Function Imports
-from src.modules.functions import p_100, p_101, p_102, p_103, p_300, p_400
+from src.modules.functions import p_090, p_100, p_101, p_102, p_103, p_300, p_400
 from src.modules.functions_p200_p204 import p_200
 # Robocorp Imports
 from robocorp.tasks import task
@@ -16,11 +16,14 @@ pdf_dir = "output/pdfs/"
 
 @task
 def main():
+    # Add the assistant step
+    url = p_090()
+
     # Create tmp directories
     p_100(tmp_pdf_dir, tmp_screenshot_dir, pdf_dir)
 
     # Open website
-    p_101()
+    p_101(url)
 
     # Download orders
     p_102()

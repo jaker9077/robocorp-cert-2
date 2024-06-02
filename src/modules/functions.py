@@ -3,10 +3,22 @@ from robocorp import browser
 from RPA.HTTP import HTTP
 from RPA.Tables import Tables
 from RPA.Archive import Archive
+from RPA.Assistant import Assistant
 
 # Other Imports
 import os
 import shutil
+
+# Assistant Step
+def p_090():
+    assistant = Assistant()
+    assistant.add_heading("Input from user")
+    assistant.add_text_input("text_input", placeholder="Please enter URL")
+    assistant.add_submit_buttons("Submit", default="Submit")
+    result = assistant.run_dialog()
+    url = result.text_input
+    return url
+
 
 # Use dependencies to set up tmp directories
 def p_100(tmp_pdf_dir, tmp_screenshot_dir, pdf_dir):
@@ -16,9 +28,12 @@ def p_100(tmp_pdf_dir, tmp_screenshot_dir, pdf_dir):
 
 
 # Open the robot order website
-def p_101():
+def p_101(url):
+    browser.configure(
+        headless=True
+    )
     page = browser.page()
-    page.goto("https://robotsparebinindustries.com/#/robot-order")
+    page.goto(url)
     
 
 # Download the orders

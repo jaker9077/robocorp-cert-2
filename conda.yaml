@@ -15,5 +15,5 @@ dependencies:
     - robocorp-browser==2.2.1     # https://pypi.org/project/robocorp-browser
     - pandas==2.2.2               # https://pandas.pydata.org/docs/whatsnew/index.html
     - Pillow==10.3.0              # https://pillow.readthedocs.io/en/stable/releasenotes/10.3.0.html
-
+    - rpaframework-assistant==3.0.4  # https://rpaframework.org/releasenotes.html
     
